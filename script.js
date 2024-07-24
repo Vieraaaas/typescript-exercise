@@ -6,3 +6,8 @@ const menu = [
 ];
 const cashInRegister = 100;
 const orderQueue = [];
+
+// Step 1: Add a function that takes a pizza object and adds it to  the menu
+function addNewPizza(newPizza) {
+  menu.push(newPizza);
+}
