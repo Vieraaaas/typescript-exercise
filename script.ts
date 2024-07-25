@@ -23,7 +23,7 @@ function addNewPizza(newPizza: Pizza) {
 //2. adds the income(price) to cashInRegister
 //3. pushes a new order object to orderQueue
 //4. returns the new order object
-function placeOrder(order) {
+function placeOrder(order: string) {
   const orderedPizza = menu.find((menuEntry) => menuEntry.name === order);
   const newOrder = { pizza: orderedPizza, status: "ordered", id: nextOrderId };
   if (!orderedPizza) {
