@@ -1,3 +1,8 @@
+type Pizza = {
+  name: string;
+  price: number;
+};
+
 const menu = [
   { name: "Margherita", price: 10 },
   { name: "Funghi", price: 12 },
@@ -9,7 +14,7 @@ const orderQueue = [];
 let nextOrderId = 1;
 
 // Step 1: Add a function that takes a pizza object and adds it to  the menu
-function addNewPizza(newPizza) {
+function addNewPizza(newPizza: Pizza) {
   menu.push(newPizza);
 }
 
@@ -44,9 +49,9 @@ function completeOrder(orderId: number) {
 }
 
 // Tests:
-// addNewPizza({ name: "Test Pizza", price: 5 });
-// placeOrder("Test Pizza");
-// completeOrder(1);
-// console.log(menu);
-// console.log(cashInRegister);
-// console.log(orderQueue);
+addNewPizza({ name: "Test Pizza", price: 5 });
+placeOrder("Test Pizza");
+completeOrder(1);
+console.log(menu);
+console.log(cashInRegister);
+console.log(orderQueue);
