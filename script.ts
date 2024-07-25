@@ -35,7 +35,7 @@ function placeOrder(order) {
 //1. finds the correct order in orderQueue
 //2. marks it's status as "completed"
 //3. returns the order
-function completeOrder(orderId) {
+function completeOrder(orderId: number) {
   const completedOrder = orderQueue.find(
     (orderEntry) => orderEntry.id === orderId
   );
