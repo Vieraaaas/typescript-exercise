@@ -3,6 +3,12 @@ type Pizza = {
   price: number;
 };
 
+type NewOrder = {
+  pizza: Pizza;
+  status: string;
+  id: number;
+};
+
 const menu = [
   { name: "Margherita", price: 10 },
   { name: "Funghi", price: 12 },
@@ -25,7 +31,11 @@ function addNewPizza(newPizza: Pizza) {
 //4. returns the new order object
 function placeOrder(order: string) {
   const orderedPizza = menu.find((menuEntry) => menuEntry.name === order);
-  const newOrder = { pizza: orderedPizza, status: "ordered", id: nextOrderId };
+  const newOrder: NewOrder = {
+    pizza: orderedPizza!, // "!"is a non-null assertion operator (i.e, orderedPizza will never be undefined)
+    status: "ordered",
+    id: nextOrderId,
+  };
   if (!orderedPizza) {
     console.error("${order} does not exist in the menu.");
     return;
