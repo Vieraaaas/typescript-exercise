@@ -38,3 +38,11 @@ function completeOrder(orderId) {
   completedOrder.status = "completed";
   return completedOrder;
 }
+
+// Tests:
+// addNewPizza({ name: "Test Pizza", price: 5 });
+// placeOrder("Test Pizza");
+// completeOrder(1);
+// console.log(menu);
+// console.log(cashInRegister);
+// console.log(orderQueue);
