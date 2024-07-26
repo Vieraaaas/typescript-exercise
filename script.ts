@@ -16,7 +16,7 @@ const menu = [
   { name: "Spinaci", price: 12 },
 ];
 let cashInRegister = 100;
-const orderQueue = [];
+const orderQueue: NewOrder[] = [];
 let nextOrderId = 1;
 
 // Step 1: Add a function that takes a pizza object and adds it to  the menu
