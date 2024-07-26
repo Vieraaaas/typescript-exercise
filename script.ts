@@ -54,6 +54,10 @@ function completeOrder(orderId: number) {
   const completedOrder = orderQueue.find(
     (orderEntry) => orderEntry.id === orderId
   );
+  if (!completedOrder) {
+    console.error("$The order {orderId} does not exist!");
+    return;
+  }
   completedOrder.status = "completed";
   return completedOrder;
 }
