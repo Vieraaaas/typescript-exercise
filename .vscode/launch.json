@@ -10,7 +10,9 @@
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\script.ts",
-      "outputCapture": "std"
+      "outputCapture": "std",
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "args": ["${workspaceFolder}/script.ts"]
     }
   ]
 }
