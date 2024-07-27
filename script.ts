@@ -53,6 +53,18 @@ function completeOrder(orderId: number) {
   return completedOrder;
 }
 
+function getPizzaDetail(identifier: string | number) {
+  if (typeof identifier === "string") {
+    const searchedPizza = menu.find(
+      (menuEntry) => menuEntry.name.toLowerCase() === identifier.toLowerCase()
+    );
+    return searchedPizza;
+  } else if (typeof identifier === "number") {
+    const searchedPizza = menu.find((menuEntry) => menuEntry.id === identifier);
+    return searchedPizza;
+  }
+}
+
 // Tests:
 addNewPizza({ id: 5, name: "Test Pizza", price: 5 });
 placeOrder("Test Pizza");
@@ -60,3 +72,4 @@ completeOrder(1);
 console.log(menu);
 console.log(cashInRegister);
 console.log(orderQueue);
+console.log(getPizzaDetail("veggie"));
