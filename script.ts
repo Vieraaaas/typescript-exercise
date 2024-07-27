@@ -1,3 +1,8 @@
+let cashInRegister = 100;
+const orderQueue: NewOrder[] = [];
+let nextOrderId = 1;
+let nextPizzaId = 1;
+
 type Pizza = {
   id: number;
   name: string;
@@ -11,17 +16,19 @@ type NewOrder = {
 };
 
 const menu: Pizza[] = [
-  { id: 1, name: "Margherita", price: 10 },
-  { id: 2, name: "Funghi", price: 12 },
-  { id: 3, name: "Veggie", price: 11 },
-  { id: 4, name: "Spinaci", price: 12 },
+  { id: nextPizzaId++, name: "Margherita", price: 10 },
+  { id: nextPizzaId++, name: "Funghi", price: 12 },
+  { id: nextPizzaId++, name: "Veggie", price: 11 },
+  { id: nextPizzaId++, name: "Spinaci", price: 12 },
 ];
-let cashInRegister = 100;
-const orderQueue: NewOrder[] = [];
-let nextOrderId = 1;
 
-function addNewPizza(newPizza: Pizza): void {
-  menu.push(newPizza);
+function addNewPizza(newPizza: Omit<Pizza, "id">): Pizza {
+  const pizzaObj: Pizza = {
+    id: nextPizzaId++,
+    ...newPizza,
+  };
+  menu.push(pizzaObj);
+  return pizzaObj;
 }
 
 function placeOrder(order: string): NewOrder | undefined {
@@ -66,7 +73,7 @@ function getPizzaDetail(identifier: string | number): Pizza | undefined {
 }
 
 // Tests:
-addNewPizza({ id: 5, name: "Test Pizza", price: 5 });
+addNewPizza({ name: "Test Pizza", price: 5 });
 placeOrder("Test Pizza");
 completeOrder(1);
 console.log(menu);
