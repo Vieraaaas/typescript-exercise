@@ -53,7 +53,7 @@ function completeOrder(orderId: number) {
   return completedOrder;
 }
 
-function getPizzaDetail(identifier: string | number) {
+function getPizzaDetail(identifier: string | number): Pizza | undefined {
   if (typeof identifier === "string") {
     const searchedPizza = menu.find(
       (menuEntry) => menuEntry.name.toLowerCase() === identifier.toLowerCase()
