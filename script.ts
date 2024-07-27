@@ -20,11 +20,11 @@ let cashInRegister = 100;
 const orderQueue: NewOrder[] = [];
 let nextOrderId = 1;
 
-function addNewPizza(newPizza: Pizza) {
+function addNewPizza(newPizza: Pizza): void {
   menu.push(newPizza);
 }
 
-function placeOrder(order: string) {
+function placeOrder(order: string): NewOrder | undefined {
   const orderedPizza = menu.find((menuEntry) => menuEntry.name === order);
   const newOrder: NewOrder = {
     pizza: orderedPizza!, // "!"is a non-null assertion operator (i.e, orderedPizza will never be undefined)
@@ -41,7 +41,7 @@ function placeOrder(order: string) {
   return newOrder;
 }
 
-function completeOrder(orderId: number) {
+function completeOrder(orderId: number): NewOrder | undefined {
   const completedOrder = orderQueue.find(
     (orderEntry) => orderEntry.id === orderId
   );
